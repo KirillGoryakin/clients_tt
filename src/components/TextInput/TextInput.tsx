@@ -9,6 +9,7 @@ type Props = React.ComponentProps<'input'> & {
   caption?: string;
   secret?: boolean;
   error?: boolean;
+  disabled?: boolean;
 };
 
 const TextInput: React.FC<Props> = ({
@@ -16,6 +17,7 @@ const TextInput: React.FC<Props> = ({
   caption,
   secret = false,
   error = false,
+  disabled = false,
   ...inputProps
 }) => {
   const [hidden, setHidden] = useState(secret);
@@ -31,6 +33,7 @@ const TextInput: React.FC<Props> = ({
           className={styles.input}
           {...inputProps}
           type={hidden ? 'password' : 'text'}
+          disabled={disabled}
         />
         {secret && (
           <button

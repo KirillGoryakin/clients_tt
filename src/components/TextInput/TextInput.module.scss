@@ -24,7 +24,7 @@
 .input {
   @apply 
     w-full pl-3 pr-12 py-2
-    text-base text-slate-900
+    text-base text-slate-900 disabled:text-slate-400
     bg-white border-slate-200 rounded-lg
     outline-none
     transition-shadow;
