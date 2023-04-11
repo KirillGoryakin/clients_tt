@@ -1,0 +1,48 @@
+
+.label {
+  @apply
+    mb-2.5
+    text-base font-medium
+    text-slate-600;
+}
+
+.caption {
+  @apply
+    mt-2.5
+    text-sm text-slate-400
+    transition-colors;
+
+  &_error {
+    @apply text-red-400;
+  }
+}
+
+.inputWrap {
+  @apply relative;
+}
+
+.input {
+  @apply 
+    w-full pl-3 pr-12 py-2
+    text-base text-slate-900
+    bg-white border-slate-200 rounded-lg
+    outline-none
+    transition-shadow;
+  border-width: 1px;
+
+  &:focus {
+    box-shadow: 0px 0px 0px 2px #BAE6FD;
+  }
+}
+
+.eye {
+  @apply
+    absolute
+    top-1/2 right-3 -translate-y-1/2
+    flex justify-center items-center
+    w-6 h-6;
+
+  img {
+    @apply w-full h-full;
+  }
+}
