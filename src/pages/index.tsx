@@ -1,3 +1,4 @@
+import { Customers } from '@/page-components/Home/Customers';
 import { LeftSide } from '@/page-components/Home/LeftSide';
 import type { NextPage } from 'next';
 import Head from 'next/head';
@@ -11,7 +12,7 @@ const Home: NextPage = () => {
 
       <div className='flex'>
         <LeftSide />
-
+        <Customers />
       </div>
     </>
   );

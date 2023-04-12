@@ -1,0 +1,20 @@
+
+.table {
+  @apply w-full mt-10;
+
+  td, th {
+    @apply pb-3 text-base font-medium text-slate-900 text-left;
+  }
+  
+  th {
+    @apply text-slate-400;
+  }
+}
+
+.status {
+  width: 75px;
+}
+
+.actionButtons {
+  width: 70px;
+}
