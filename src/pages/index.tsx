@@ -1,3 +1,4 @@
+import { RadioGroup } from '@/components/RadioGroup';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 

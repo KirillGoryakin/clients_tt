@@ -1,0 +1,22 @@
+
+.label {
+  @apply mb-2.5 text-base font-medium text-slate-600;
+}
+
+.inputs {
+  @apply flex p-1 gap-1 bg-slate-100 rounded-sm;
+}
+
+.itemLabel {
+  @apply
+    flex grow justify-center items-center
+    py-1 px-1.5
+    text-base text-slate-900
+    rounded transition-colors
+    cursor-pointer;
+
+  &_selected {
+    @apply bg-white;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px -1px rgba(0, 0, 0, 0.1);
+  }
+}
