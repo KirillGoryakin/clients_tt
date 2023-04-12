@@ -26,8 +26,8 @@ const TextInput: React.FC<Props> = ({
   if (error) captionClassName += ` ${styles.caption_error}`; 
   
   return (
-    <div className={styles.wrap}>
-      <p className={styles.label}>{label || <br />}</p>
+    <label className='w-full'>
+      <p className={styles.label}>{label}</p>
       <div className={styles.inputWrap}>
         <input
           className={styles.input}
@@ -38,12 +38,13 @@ const TextInput: React.FC<Props> = ({
         {secret && (
           <button
             className={styles.eye}
+            type='button'
             onClick={() => setHidden(!hidden)}
           ><Image src={hidden ? eye : eyeOff} alt='Eye' /></button>
         )}
       </div>
-      <p className={captionClassName}>{caption || <br />}</p>
-    </div>
+      <p className={captionClassName}>{caption}</p>
+    </label>
   );
 };
 
