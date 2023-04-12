@@ -2,9 +2,7 @@ import { TableRow } from './TableRow';
 import styles from './Table.module.scss';
 import { useCustomers } from '@/contexts/customers';
 
-type Props = {};
-
-const Table: React.FC<Props> = () => {
+const Table = () => {
   const { customers } = useCustomers();
   
   return (

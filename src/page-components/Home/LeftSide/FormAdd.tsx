@@ -1,5 +1,4 @@
 import { Button } from '@/components/Button';
-import { Heading } from '@/components/Heading';
 import { RadioGroup } from '@/components/RadioGroup';
 import { TextInput } from '@/components/TextInput';
 import { useCustomers } from '@/contexts/customers';
@@ -16,14 +15,14 @@ type FormSubmitEvent = React.FormEvent<HTMLFormElement> & {
   };
 };
 
-const LeftSide = () => {
+const FormAdd = () => {
   const { setCustomers } = useCustomers();
 
   const handleSubmit = (e: FormSubmitEvent) => {
     e.preventDefault();
 
     const newCustomer: Customer = {
-      id: new Date().getTime()+'',
+      id: new Date().getTime() + '',
       firstName: e.target.firstName.value,
       lastName: e.target.lastName.value,
       company: e.target.company.value,
@@ -40,39 +39,37 @@ const LeftSide = () => {
   };
   
   return (
-    <div
-      className='min-h-screen p-10 border-r border-slate-200'
-      style={{ width: 512 }}
+    <form
+      className='mt-10 flex flex-col gap-6'
+      onSubmit={handleSubmit}
     >
-      <Heading>Add Customer</Heading>
+      <div className='flex gap-6'>
+        <TextInput label='First Name' name='firstName' />
+        <TextInput label='Last Name' name='lastName' />
+      </div>
 
-      <form
-        className='mt-10 flex flex-col gap-6'
-        onSubmit={handleSubmit}
-      >
-        <div className='flex gap-6'>
-          <TextInput label='First Name' name='firstName' />
-          <TextInput label='Last Name' name='lastName' />
-        </div>
-        <TextInput label='Company' name='company' />
-        <RadioGroup
-          label='Status'
-          name='status'
-          items={[
-            {label: 'User', value: 'user'},
-            {label: 'Administrator', value: 'admin'},
-          ]}
-          initialValue='user'
-        />
-        <TextInput label='Email' name='email' />
-        <TextInput
-          label='Password' caption='8+ characters'
-          name='password' secret
-        />
-        <Button label='Save' type='submit' />
-      </form>
-    </div>
+      <TextInput label='Company' name='company' />
+
+      <RadioGroup
+        label='Status'
+        name='status'
+        items={[
+          { label: 'User', value: 'user' },
+          { label: 'Administrator', value: 'admin' },
+        ]}
+        initialValue='user'
+      />
+
+      <TextInput label='Email' name='email' />
+
+      <TextInput
+        label='Password' caption='8+ characters'
+        name='password' secret
+      />
+
+      <Button label='Save' type='submit' />
+    </form>
   );
 };
 
-export { LeftSide };
+export { FormAdd };

@@ -20,9 +20,11 @@ const TableRow: React.FC<Props> = ({ customer }) => {
     email,
   } = customer;
 
-  const { setCustomers } = useCustomers();
+  const { setCustomers, setEditingId } = useCustomers();
 
-  const handleEdit = () => {};
+  const handleEdit = () => {
+    setEditingId(customer.id);
+  };
 
   const handleDelete = () => {
     setCustomers(prev => prev.filter(c => c.id !== id));
