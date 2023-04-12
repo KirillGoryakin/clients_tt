@@ -2,6 +2,8 @@ import { Button } from '@/components/Button';
 import { Heading } from '@/components/Heading';
 import { RadioGroup } from '@/components/RadioGroup';
 import { TextInput } from '@/components/TextInput';
+import { useCustomers } from '@/contexts/customers';
+import { Customer } from '@/types';
 
 type FormSubmitEvent = React.FormEvent<HTMLFormElement> & {
   target: {
@@ -15,9 +17,26 @@ type FormSubmitEvent = React.FormEvent<HTMLFormElement> & {
 };
 
 const LeftSide = () => {
+  const { setCustomers } = useCustomers();
 
   const handleSubmit = (e: FormSubmitEvent) => {
     e.preventDefault();
+
+    const newCustomer: Customer = {
+      id: new Date().getTime()+'',
+      firstName: e.target.firstName.value,
+      lastName: e.target.lastName.value,
+      company: e.target.company.value,
+      status: e.target.status.value,
+      email: e.target.email.value,
+    };
+    setCustomers(prev => [...prev, newCustomer]);
+
+    e.target.firstName.value = '';
+    e.target.lastName.value = '';
+    e.target.company.value = '';
+    e.target.email.value = '';
+    e.target.password.value = '';
   };
   
   return (

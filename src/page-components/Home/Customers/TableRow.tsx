@@ -4,6 +4,7 @@ import styles from './Table.module.scss';
 import edit from '@/assets/icons/edit.svg';
 import trash from '@/assets/icons/trash.svg';
 import Image from 'next/image';
+import { useCustomers } from '@/contexts/customers';
 
 type Props = {
   customer: Customer;
@@ -19,9 +20,13 @@ const TableRow: React.FC<Props> = ({ customer }) => {
     email,
   } = customer;
 
+  const { setCustomers } = useCustomers();
+
   const handleEdit = () => {};
 
-  const handleDelete = () => {};
+  const handleDelete = () => {
+    setCustomers(prev => prev.filter(c => c.id !== id));
+  };
   
   return (
     <tr>
@@ -33,13 +38,13 @@ const TableRow: React.FC<Props> = ({ customer }) => {
       </td>
       <td>{company}</td>
       <td>{email}</td>
-      <td className={styles.status}>
+      <td>
         <div className={`
           w-12 h-6 rounded
           ${status === 'admin' ? 'bg-sky-500' : 'bg-slate-200'}
         `} />
       </td>
-      <td className={styles.actionButtons}>
+      <td>
         <div className='flex gap-4'>
           <button onClick={handleEdit}>
             <Image src={edit} alt='Edit' />

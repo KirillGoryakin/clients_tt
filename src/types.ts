@@ -9,6 +9,6 @@ export type Customer = {
   firstName: string;
   lastName: string;
   company: string;
-  status: 'user' | 'admin';
+  status: string;
   email: string;
 };

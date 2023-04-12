@@ -1,3 +1,4 @@
+import { CustomersProvider } from '@/contexts/customers';
 import { Customers } from '@/page-components/Home/Customers';
 import { LeftSide } from '@/page-components/Home/LeftSide';
 import type { NextPage } from 'next';
@@ -11,8 +12,10 @@ const Home: NextPage = () => {
       </Head>
 
       <div className='flex'>
-        <LeftSide />
-        <Customers />
+        <CustomersProvider>
+          <LeftSide />
+          <Customers />
+        </CustomersProvider>
       </div>
     </>
   );
