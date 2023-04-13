@@ -48,13 +48,13 @@ const FormEdit = () => {
     >
       <div className='flex gap-6'>
         <TextInput
-          key={customer.firstName}
+          key={'firstName' + customer.firstName}
           label='First Name'
           name='firstName'
           defaultValue={customer.firstName}
         />
         <TextInput
-          key={customer.lastName}
+          key={'lastName' + customer.lastName}
           label='Last Name'
           name='lastName'
           defaultValue={customer.lastName}
@@ -62,14 +62,14 @@ const FormEdit = () => {
       </div>
 
       <TextInput
-        key={customer.company}
+        key={'company' + customer.company}
         label='Company'
         name='company'
         defaultValue={customer.company}
       />
 
       <RadioGroup
-        key={customer.status}
+        key={'status' + customer.status}
         label='Status'
         name='status'
         items={[
@@ -80,7 +80,7 @@ const FormEdit = () => {
       />
 
       <TextInput
-        key={customer.email}
+        key={'email' + customer.email}
         label='Email'
         name='email'
         defaultValue={customer.email}
